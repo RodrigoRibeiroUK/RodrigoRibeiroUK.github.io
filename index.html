@@ -2391,7 +2391,7 @@ BUILD 05 — SELECTED WORK
                 <!-- WHATSAPP -->
 
                 <a
-                
+
     href="https://wa.me/447565465412"
     target="_blank"
     rel="noopener noreferrer"
@@ -3302,6 +3302,41 @@ BUILD 05 — SELECTED WORK
             }
 
 
+            /*
+             * MOBILE:
+             * 1 card por vez.
+             *
+             * DESKTOP:
+             * mantém o comportamento atual de
+             * duas posições.
+             */
+
+            const isMobile =
+                window.matchMedia(
+                    "(max-width: 768px)"
+                ).matches;
+
+            const maxPosition =
+                isMobile
+                    ? cards.length - 1
+                    : Math.min(1, cards.length - 1);
+
+
+            /*
+             * Impede a posição de ficar fora
+             * do limite após redimensionamento.
+             */
+
+            clientWebsitePosition =
+                Math.max(
+                    0,
+                    Math.min(
+                        clientWebsitePosition,
+                        maxPosition
+                    )
+                );
+
+
             const cardWidth =
                 cards[0]
                     .getBoundingClientRect()
@@ -3343,7 +3378,7 @@ BUILD 05 — SELECTED WORK
 
 
             clientNextButton.style.opacity =
-                clientWebsitePosition === 1
+                clientWebsitePosition === maxPosition
                     ? "0.22"
                     : "1";
 
@@ -3353,9 +3388,32 @@ BUILD 05 — SELECTED WORK
         clientNextButton.onclick =
             function () {
 
-                clientWebsitePosition = 1;
+                const cards =
+                    clientWebsitesGrid.querySelectorAll(
+                        ".client-website-card"
+                    );
 
-                updateClientWebsitesCarousel();
+                const isMobile =
+                    window.matchMedia(
+                        "(max-width: 768px)"
+                    ).matches;
+
+                const maxPosition =
+                    isMobile
+                        ? cards.length - 1
+                        : Math.min(1, cards.length - 1);
+
+
+                if (
+                    clientWebsitePosition <
+                    maxPosition
+                ) {
+
+                    clientWebsitePosition++;
+
+                    updateClientWebsitesCarousel();
+
+                }
 
             };
 
@@ -3363,9 +3421,15 @@ BUILD 05 — SELECTED WORK
         clientPrevButton.onclick =
             function () {
 
-                clientWebsitePosition = 0;
+                if (
+                    clientWebsitePosition > 0
+                ) {
 
-                updateClientWebsitesCarousel();
+                    clientWebsitePosition--;
+
+                    updateClientWebsitesCarousel();
+
+                }
 
             };
 

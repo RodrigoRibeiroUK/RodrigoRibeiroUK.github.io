@@ -4576,10 +4576,10 @@ span:first-child {
 
 
     .about-image {
-        object-position:
-            60%
-            center;
-    }
+    object-position:
+        60%
+        10%;
+}
 
 
     .about-modal {
