@@ -1603,7 +1603,24 @@ body {
             22px
             20px;
     }
+/* TECH REVEAL — MOBILE */
 
+.tech-reveal-gap .tech-reveal-message {
+    width: calc(100% - 40px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tech-reveal-gap .tech-reveal-message strong {
+    font-size: 21px;
+    letter-spacing: 0.055em;
+    white-space: nowrap;
+}
+
+.tech-reveal-gap .tech-reveal-subtitle {
+    font-size: 9px;
+    letter-spacing: 0.10em;
+    }
 }
 
 
