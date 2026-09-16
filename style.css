@@ -1571,11 +1571,12 @@ body {
         font-size: 0.58rem;
     }
 
-    .work-globe {
-        height: 260px;
-
-        margin-top: -10px;
-    }
+  .work-globe {
+    height: 260px;
+    margin-top: -10px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
     .project-filters {
         gap: 8px;
