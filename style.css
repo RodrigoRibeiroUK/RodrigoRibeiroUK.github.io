@@ -7679,3 +7679,26 @@ span:first-child {
 #about {
     scroll-margin-top: 70px;
 }
+/* =========================================================
+   BUILD 100 — MOBILE TECH MESSAGE FINAL OVERRIDE
+========================================================= */
+
+@media (max-width: 640px) {
+
+    .tech-fixed-composition
+    .tech-reveal-gap
+    .tech-reveal-message strong {
+        font-size: 18px !important;
+        line-height: 1.15;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+    }
+
+    .tech-fixed-composition
+    .tech-reveal-gap
+    .tech-reveal-subtitle {
+        font-size: 9px !important;
+        letter-spacing: 0.10em;
+    }
+
+}
