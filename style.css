@@ -1,0 +1,7663 @@
+/* =========================================================
+   BUILD 01 — GLOBAL DESIGN SYSTEM
+========================================================= */
+
+:root {
+    --bg: #05070b;
+    --bg-soft: #0b0f16;
+
+    --text: #f5f7fb;
+    --text-soft: #a8b0bf;
+
+    --accent: #1683ff;
+
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   BUILD 01A — RESET / BASE
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(22, 131, 255, 0.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            var(--bg) 0%,
+            var(--bg-soft) 100%
+        );
+
+    color: var(--text);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   BUILD 02 — HEADER
+========================================================= */
+
+.site-header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 74px;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding:
+        0
+        clamp(24px, 4vw, 72px);
+
+    background:
+        rgba(5, 7, 11, 0.96);
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+}
+
+
+/* =========================================================
+   BUILD 02A — HEADER BRAND / OFFICIAL LOGO
+========================================================= */
+
+.brand {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+
+.brand-logo {
+    display: block;
+
+    width:
+        clamp(
+            105px,
+            8vw,
+            135px
+        );
+
+    height: auto;
+
+    object-fit: contain;
+
+    object-position:
+        left center;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(22, 131, 255, 0.08)
+        );
+}
+
+
+/* =========================================================
+   BUILD 02B — MAIN NAVIGATION
+========================================================= */
+
+.main-nav {
+    display: flex;
+
+    align-items: center;
+
+    gap:
+        clamp(
+            20px,
+            2vw,
+            34px
+        );
+
+    padding: 0;
+}
+
+
+.main-nav a {
+    position: relative;
+
+    color:
+        rgba(255, 255, 255, 0.70);
+
+    text-decoration: none;
+
+    font-size: 0.88rem;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    transition:
+        color 0.25s ease;
+}
+
+
+.main-nav a:hover {
+    color: #ffffff;
+}
+
+
+.main-nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -10px;
+
+    width: 100%;
+    height: 2px;
+
+    background:
+        var(--accent);
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        center;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.main-nav a:hover::after {
+    transform:
+        scaleX(1);
+}
+
+
+/* =========================================================
+   BUILD 03 — HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    padding:
+        clamp(145px, 15vh, 185px)
+        clamp(24px, 4vw, 72px)
+        clamp(60px, 8vh, 100px);
+
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   BUILD 03A — HERO CONTENT
+========================================================= */
+
+.hero-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(46%, 780px);
+}
+
+.hero-kicker {
+    margin-bottom: 22px;
+
+    color:
+        rgba(255, 255, 255, 0.58);
+
+    font-size:
+        clamp(
+            0.72rem,
+            0.9vw,
+            0.86rem
+        );
+
+    font-weight: 600;
+
+    letter-spacing: 0.28em;
+
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    max-width: 900px;
+
+    color: var(--text);
+
+    font-size:
+        clamp(
+            3.4rem,
+            6.8vw,
+            7.5rem
+        );
+
+    font-weight: 750;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.055em;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: var(--accent);
+
+    text-shadow:
+        0 0 30px
+        rgba(22, 131, 255, 0.14);
+}
+
+.hero-intro {
+    max-width: 690px;
+
+    margin-top: 30px;
+
+    color: var(--text-soft);
+
+    font-size:
+        clamp(
+            1rem,
+            1.25vw,
+            1.25rem
+        );
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   BUILD 03B — HERO BUTTONS
+========================================================= */
+
+.hero-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 34px;
+}
+
+.btn {
+    min-height: 50px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 24px;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    transition:
+        transform 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    color: #03101f;
+
+    background: white;
+}
+
+.btn-primary:hover {
+    background: #dfe9f4;
+}
+
+.btn-secondary {
+    color: white;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+    background:
+        rgba(255, 255, 255, 0.04);
+}
+
+.btn-secondary:hover {
+    border-color:
+        rgba(255, 255, 255, 0.30);
+
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   BUILD 04 — HERO IMAGE / CINEMATIC BLEND
+========================================================= */
+
+.hero-visual {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 72%;
+    height: 100%;
+
+    z-index: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    opacity: 0.88;
+
+    -webkit-mask-image:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(0, 0, 0, 0.08) 6%,
+            rgba(0, 0, 0, 0.32) 13%,
+            rgba(0, 0, 0, 0.66) 21%,
+            #000 34%,
+            #000 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(0, 0, 0, 0.08) 6%,
+            rgba(0, 0, 0, 0.32) 13%,
+            rgba(0, 0, 0, 0.66) 21%,
+            #000 34%,
+            #000 100%
+        );
+}
+
+
+.hero-panel {
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    border: 0;
+
+    background: transparent;
+}
+
+
+.hero-panel img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center right;
+
+    filter:
+        brightness(0.62)
+        contrast(1.03)
+        saturate(0.88);
+
+    transform: scale(1.02);
+}
+
+
+/* =========================================================
+   BUILD 04A — HERO IMAGE OVERLAY
+========================================================= */
+
+.hero-panel::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #05070b 0%,
+            rgba(5, 7, 11, 1) 5%,
+            rgba(5, 7, 11, 0.98) 11%,
+            rgba(5, 7, 11, 0.90) 18%,
+            rgba(5, 7, 11, 0.68) 27%,
+            rgba(5, 7, 11, 0.40) 36%,
+            rgba(5, 7, 11, 0.16) 47%,
+            transparent 61%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(5, 7, 11, 0.48) 0%,
+            rgba(5, 7, 11, 0.16) 14%,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            0deg,
+            rgba(5, 7, 11, 0.94) 0%,
+            rgba(5, 7, 11, 0.68) 9%,
+            rgba(5, 7, 11, 0.30) 20%,
+            transparent 38%
+        );
+}
+
+
+/* =========================================================
+   BUILD 04B — HERO TOP / BOTTOM FADE
+========================================================= */
+
+.hero-panel::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(5, 7, 11, 0.55) 0%,
+            rgba(5, 7, 11, 0.24) 9%,
+            rgba(5, 7, 11, 0.07) 17%,
+            transparent 28%
+        ),
+
+        linear-gradient(
+            0deg,
+            #05070b 0%,
+            rgba(5, 7, 11, 0.97) 5%,
+            rgba(5, 7, 11, 0.84) 10%,
+            rgba(5, 7, 11, 0.58) 17%,
+            rgba(5, 7, 11, 0.30) 24%,
+            rgba(5, 7, 11, 0.10) 31%,
+            transparent 40%
+        );
+
+    box-shadow:
+        inset 0 35px 65px
+        rgba(5, 7, 11, 0.16),
+
+        inset 0 -70px 100px
+        rgba(5, 7, 11, 0.32);
+}
+
+/* =========================================================
+   BUILD 05 — SELECTED WORK
+========================================================= */
+
+.work-section {
+    position: relative;
+
+    min-height: 70vh;
+
+    padding:
+        clamp(90px, 10vh, 140px)
+        clamp(24px, 4vw, 72px);
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #05070b 0%,
+            #05070b 8%,
+            #070b11 28%,
+            #05070b 100%
+        );
+}
+
+
+/* =========================================================
+   BUILD 05A — WORK INTRO
+========================================================= */
+
+.work-intro-layout {
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(360px, 0.95fr);
+
+    align-items: center;
+
+    gap:
+        clamp(
+            42px,
+            6vw,
+            100px
+        );
+
+    margin-bottom: 34px;
+}
+
+
+.section-heading {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 760px;
+}
+
+
+.section-kicker {
+    margin-bottom: 18px;
+
+    color: var(--accent);
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.28em;
+
+    text-transform: uppercase;
+}
+
+
+.section-heading h2 {
+    font-size:
+        clamp(
+            2.6rem,
+            5vw,
+            5.5rem
+        );
+
+    line-height: 1;
+
+    letter-spacing: -0.045em;
+}
+
+
+.section-heading h2 span {
+    color: var(--accent);
+}
+
+
+.section-description {
+    max-width: 690px;
+
+    margin-top: 24px;
+
+    color:
+        rgba(255, 255, 255, 0.94);
+
+    font-size:
+        clamp(
+            1rem,
+            1.12vw,
+            1.17rem
+        );
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUILD 05A.2 — PORTFOLIO NOTE
+========================================================= */
+
+.portfolio-note {
+    max-width: 650px;
+
+    margin-top: 17px;
+
+    color:
+        rgba(255, 255, 255, 0.48);
+
+    font-size:
+        clamp(
+            0.58rem,
+            0.58vw,
+            0.69rem
+        );
+
+    line-height: 1.55;
+
+    letter-spacing: 0.015em;
+}
+
+
+.portfolio-note strong {
+    color:
+        rgba(255, 255, 255, 0.66);
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   BUILD 05B — FUTURISTIC GLOBE VIDEO
+========================================================= */
+
+.work-globe {
+    position: relative;
+
+    width: 135%;
+
+    height:
+        clamp(
+            440px,
+            40vw,
+            620px
+        );
+
+    margin-left: -17%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    isolation: isolate;
+
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse at center,
+            #000 42%,
+            rgba(0, 0, 0, 0.96) 60%,
+            rgba(0, 0, 0, 0.58) 78%,
+            transparent 98%
+        );
+
+    mask-image:
+        radial-gradient(
+            ellipse at center,
+            #000 42%,
+            rgba(0, 0, 0, 0.96) 60%,
+            rgba(0, 0, 0, 0.58) 78%,
+            transparent 98%
+        );
+}
+
+
+/* =========================================================
+   BUILD 05B.1 — GLOBE VIDEO
+========================================================= */
+
+.work-globe-video {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 10;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+    object-position: center;
+
+    opacity: 1;
+
+    filter: none;
+
+    background: #000;
+}
+
+
+/* =========================================================
+   BUILD 05B.2 — GLOBE AMBIENT GLOW
+========================================================= */
+
+.work-globe-glow {
+    position: absolute;
+
+    z-index: 0;
+
+    width: 76%;
+    height: 76%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(22, 131, 255, 0.28) 0%,
+            rgba(22, 131, 255, 0.10) 42%,
+            transparent 74%
+        );
+
+    filter: blur(34px);
+
+    animation:
+        globe-video-glow
+        5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes globe-video-glow {
+
+    0%,
+    100% {
+        transform: scale(0.94);
+        opacity: 0.52;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 0.88;
+    }
+}
+
+/* =========================================================
+   BUILD 05C — PROJECT FILTERS
+========================================================= */
+
+.project-filters {
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 58px;
+    margin-bottom: 38px;
+}
+
+.filter-btn {
+    min-height: 42px;
+
+    padding: 0 20px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.03);
+
+    color:
+        rgba(255, 255, 255, 0.72);
+
+    font: inherit;
+
+    font-size: 0.88rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.filter-btn:hover {
+    color: white;
+
+    border-color:
+        rgba(255, 255, 255, 0.24);
+
+    background:
+        rgba(255, 255, 255, 0.07);
+
+    transform:
+        translateY(-1px);
+}
+
+.filter-btn.active {
+    color: #03101f;
+
+    border-color: var(--accent);
+
+    background: var(--accent);
+}
+
+
+/* =========================================================
+   BUILD 05D — PROJECT GRID
+========================================================= */
+
+.projects-grid {
+    position: relative;
+
+    z-index: 4;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    align-items: stretch;
+
+    gap:
+        clamp(
+            18px,
+            2vw,
+            28px
+        );
+}
+
+
+/* =========================================================
+   BUILD 05D.1 — PROJECT CARD
+========================================================= */
+
+.project-card {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(15, 23, 35, 0.92) 0%,
+            rgba(8, 13, 21, 0.96) 52%,
+            rgba(5, 8, 13, 0.99) 100%
+        );
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.025),
+
+        0 22px 60px
+        rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease,
+        opacity 0.25s ease;
+}
+
+.project-card:hover {
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(22, 131, 255, 0.30);
+
+    box-shadow:
+        0 26px 70px
+        rgba(0, 0, 0, 0.34),
+
+        0 0 35px
+        rgba(22, 131, 255, 0.06);
+}
+
+
+/* =========================================================
+   BUILD 05D.2 — PROJECT IMAGE
+========================================================= */
+
+.project-card-media {
+    position: relative;
+
+    width: 100%;
+    height: 270px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        #07101a;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.05);
+}
+
+.project-card-media img {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center top;
+
+    filter:
+        brightness(0.76)
+        contrast(1.06)
+        saturate(0.96);
+
+    transition:
+        transform 0.40s ease,
+        filter 0.40s ease;
+}
+
+
+/* Full-image cinematic gradient */
+
+.project-image-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(3, 7, 12, 0.22) 0%,
+            rgba(3, 7, 12, 0.08) 26%,
+            rgba(3, 7, 12, 0.18) 58%,
+            rgba(5, 8, 13, 0.90) 100%
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(5, 8, 13, 0.36) 0%,
+            rgba(5, 8, 13, 0.05) 28%,
+            rgba(5, 8, 13, 0.05) 72%,
+            rgba(5, 8, 13, 0.30) 100%
+        ),
+
+        rgba(3, 8, 16, 0.08);
+}
+
+.project-card:hover
+.project-card-media img {
+    transform: scale(1.025);
+
+    filter:
+        brightness(0.80)
+        contrast(1.07)
+        saturate(0.98);
+}
+
+
+/* =========================================================
+   BUILD 05D.3 — PROJECT CONTENT
+========================================================= */
+
+.project-card-content {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    padding:
+        25px
+        24px
+        24px;
+}
+
+
+/* META LINE — CATEGORY + VIEW */
+
+.project-meta,
+.project-card-meta {
+    min-height: 34px;
+
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 14px;
+
+    margin-bottom: 16px;
+}
+
+
+.project-category {
+    display: block;
+
+    flex: 1;
+
+    min-width: 0;
+
+    color: var(--accent);
+
+    font-size: 0.69rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    line-height: 1.5;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   BUILD 05D.4 — VIEW BUTTON
+========================================================= */
+
+.project-view {
+    flex-shrink: 0;
+
+    min-height: 30px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    padding:
+        0
+        11px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.13);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    color:
+        rgba(255, 255, 255, 0.80);
+
+    font: inherit;
+
+    font-size: 0.68rem;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.project-view:hover {
+    color: #ffffff;
+
+    border-color:
+        rgba(22, 131, 255, 0.48);
+
+    background:
+        rgba(22, 131, 255, 0.12);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================================
+   BUILD 05D.5 — PROJECT TYPOGRAPHY
+========================================================= */
+
+.project-card h3 {
+    margin-top: 2px;
+
+    color: var(--text);
+
+    font-size:
+        clamp(
+            1.45rem,
+            1.75vw,
+            1.85rem
+        );
+
+    line-height: 1.15;
+}
+
+.project-subtitle {
+    margin-top: 7px !important;
+
+    color:
+        rgba(255, 255, 255, 0.82) !important;
+
+    font-size: 0.93rem !important;
+
+    font-weight: 600;
+
+    line-height: 1.45 !important;
+}
+
+.project-description {
+    margin-top: 15px !important;
+
+    color:
+        rgba(255, 255, 255, 0.61) !important;
+
+    font-size: 0.91rem !important;
+
+    line-height: 1.62 !important;
+}
+
+
+/* =========================================================
+   BUILD 05D.6 — CAPABILITY CHIPS
+========================================================= */
+
+.project-capabilities {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 20px;
+}
+
+.project-capabilities span {
+    display: inline-flex;
+
+    align-items: center;
+
+    min-height: 27px;
+
+    padding: 0 10px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    color:
+        rgba(255, 255, 255, 0.86);
+
+    font-size: 0.66rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.025em;
+}
+
+
+/* =========================================================
+   BUILD 05D.7 — PROJECT ROLE
+========================================================= */
+
+.project-role {
+    margin-top: auto;
+
+    padding-top: 21px;
+}
+
+.project-role::before {
+    content: "";
+
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    margin-bottom: 16px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(22, 131, 255, 0.34),
+            rgba(255, 255, 255, 0.07),
+            transparent
+        );
+}
+
+.project-role-label {
+    color:
+        rgba(255, 255, 255, 0.92);
+
+    font-size: 0.68rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.13em;
+
+    text-transform: uppercase;
+}
+
+.project-role p {
+    margin-top: 7px;
+
+    color:
+        rgba(255, 255, 255, 0.48);
+
+    font-size: 0.78rem;
+
+    line-height: 1.55;
+}
+
+/* =========================================================
+   BUILD 05E — SELECTED WORK
+   GLOBAL ENTRANCE HANDLED BY BUILD 16
+========================================================= */
+
+/*
+   Selected Work agora utiliza o motor global
+   definido no BUILD 16.
+*/
+
+
+/* =========================================================
+   BUILD 06 — FILTER STATE
+========================================================= */
+
+.project-hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   BUILD 90 — LARGE LAPTOPS
+========================================================= */
+
+@media (max-width: 1280px) {
+
+    .brand-logo {
+        width:
+            clamp(
+                125px,
+                11vw,
+                165px
+            );
+    }
+
+    .hero-content {
+        width: 50%;
+    }
+
+    .hero-visual {
+        width: 64%;
+    }
+
+    .hero h1 {
+        font-size:
+            clamp(
+                3.2rem,
+                6.5vw,
+                6rem
+            );
+    }
+
+    .work-intro-layout {
+        grid-template-columns:
+            minmax(0, 1.1fr)
+            minmax(320px, 0.9fr);
+
+        gap: 42px;
+    }
+
+    .project-card-media {
+        height: 235px;
+    }
+
+}
+
+
+/* =========================================================
+   BUILD 91 — TABLETS
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .site-header {
+        padding:
+            16px
+            24px;
+    }
+
+    .brand-logo {
+        width: 145px;
+    }
+
+    .main-nav {
+        gap: 18px;
+
+        padding-top: 7px;
+    }
+
+    .main-nav a {
+        font-size: 0.82rem;
+    }
+
+    .hero {
+        min-height: 100svh;
+
+        padding:
+            120px
+            24px
+            70px;
+    }
+
+    .hero-content {
+        width: 70%;
+    }
+
+    .hero-visual {
+        width: 100%;
+
+        opacity: 0.68;
+    }
+
+    .work-intro-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .work-globe {
+        width: min(100%, 620px);
+
+        height: 320px;
+
+        justify-self: center;
+
+        margin-top: -20px;
+    }
+
+    .projects-grid {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+}
+
+
+/* =========================================================
+   BUILD 92 — MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+
+    .site-header {
+        padding:
+            14px
+            18px;
+    }
+
+    .brand-logo {
+        width: 120px;
+    }
+
+    .main-nav a:nth-child(2),
+    .main-nav a:nth-child(4) {
+        display: none;
+    }
+
+    .hero {
+        align-items: flex-end;
+
+        min-height: 100svh;
+
+        padding:
+            110px
+            20px
+            60px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-visual {
+        width: 100%;
+
+        height: 100%;
+    }
+
+    .hero-panel img {
+        object-position: 67% center;
+
+        filter:
+            brightness(0.52)
+            saturate(0.80);
+    }
+
+    .hero h1 {
+        font-size:
+            clamp(
+                3rem,
+                15vw,
+                4.8rem
+            );
+    }
+
+    .hero-intro {
+        font-size: 1rem;
+    }
+
+    .hero-actions {
+        margin-top: 26px;
+    }
+
+    .btn {
+        min-height: 48px;
+
+        padding: 0 20px;
+    }
+
+    .work-section {
+        padding:
+            80px
+            20px;
+    }
+
+    .section-heading h2 {
+        font-size:
+            clamp(
+                2.5rem,
+                13vw,
+                4rem
+            );
+    }
+
+    .section-description {
+        font-size: 0.95rem;
+    }
+
+    .portfolio-note {
+        font-size: 0.58rem;
+    }
+
+    .work-globe {
+        height: 260px;
+
+        margin-top: -10px;
+    }
+
+    .project-filters {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        min-height: 38px;
+
+        padding: 0 14px;
+
+        font-size: 0.77rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card-media {
+        height: 250px;
+    }
+
+    .project-card-content {
+        padding:
+            22px
+            20px;
+    }
+
+}
+
+
+/* =========================================================
+   BUILD 07 — PROJECT IMAGE LIGHTBOX
+========================================================= */
+
+.project-lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        clamp(
+            24px,
+            4vw,
+            70px
+        );
+
+    background:
+        rgba(2, 5, 9, 0.94);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.28s ease,
+        visibility 0.28s ease;
+}
+
+
+.project-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   BUILD 07A — LIGHTBOX IMAGE
+========================================================= */
+
+.lightbox-content {
+    position: relative;
+
+    width: min(94vw, 1500px);
+    height: min(88vh, 900px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.lightbox-image {
+    display: block;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 30px 100px
+        rgba(0, 0, 0, 0.65),
+
+        0 0 45px
+        rgba(22, 131, 255, 0.08);
+
+    transform:
+        scale(0.96);
+
+    transition:
+        transform 0.28s ease;
+}
+
+
+.project-lightbox.active
+.lightbox-image {
+    transform:
+        scale(1);
+}
+
+
+/* =========================================================
+   BUILD 07B — LIGHTBOX CLOSE BUTTON
+========================================================= */
+
+.lightbox-close {
+    position: absolute;
+
+    top: 26px;
+    right: 32px;
+
+    z-index: 2;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    color: white;
+
+    font-size: 1.65rem;
+    font-weight: 300;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.lightbox-close:hover {
+    background:
+        rgba(22, 131, 255, 0.18);
+
+    border-color:
+        rgba(22, 131, 255, 0.48);
+
+    transform:
+        rotate(90deg);
+}
+
+
+/* =========================================================
+   BUILD 07C — PAGE LOCK WHILE LIGHTBOX IS OPEN
+========================================================= */
+
+body.lightbox-open {
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   BUILD 07D — TECH SCROLL REVEAL
+========================================================= */
+
+.tech-reveal-gap {
+    position: relative;
+
+    width: 100%;
+    height: 0;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: visible;
+}
+
+/* =========================================================
+   BUILD 08 — CLIENT WEBSITES
+========================================================= */
+
+.client-websites-section {
+    position: relative;
+    z-index: 2;
+    margin-top: clamp(90px, 10vw, 150px);
+}
+
+.client-websites-heading {
+    max-width: none;
+    margin-bottom: 42px;
+}
+
+.client-websites-heading .section-kicker {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.client-websites-heading h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 3.3rem);
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+.client-websites-heading h2 span {
+    color: #1683ff;
+}
+
+.client-websites-heading p {
+    margin: 22px 0 0;
+    max-width: 680px;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUILD 08A — CLIENT WEBSITE GRID
+========================================================= */
+
+.client-websites-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.client-websites-grid {
+    display: flex;
+
+    gap: clamp(22px, 2.5vw, 34px);
+
+    overflow: visible;
+
+    will-change: transform;
+}
+
+.client-website-card {
+    flex: 0 0 calc(
+        (
+            100% -
+            (
+                clamp(22px, 2.5vw, 34px) * 2
+            )
+        ) / 3
+    );
+}
+
+/* =========================================================
+   BUILD 08B — CLIENT WEBSITE CARD
+========================================================= */
+
+.client-website-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018));
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.26);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.client-website-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(22, 131, 255, 0.26);
+    box-shadow: 0 32px 90px rgba(0, 0, 0, 0.34);
+}
+
+
+/* =========================================================
+   BUILD 08C — CLIENT WEBSITE MEDIA / BLACK SCREEN REVEAL
+========================================================= */
+
+.client-website-media {
+    position: relative;
+    width: 100%;
+    height: 245px;
+    overflow: hidden;
+    isolation: isolate;
+    background: #050505;
+}
+
+.client-website-media img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+    filter: brightness(0.72) saturate(0.78) contrast(1.05);
+    transform: scale(1.01);
+    transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.client-website-media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(
+        135deg,
+        rgba(0,0,0,0.88),
+        rgba(18,18,18,0.78) 48%,
+        rgba(0,0,0,0.90)
+    );
+    opacity: 0.96;
+    transition: opacity 0.55s ease;
+}
+
+.client-website-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.085) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.085) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,0.035),
+            transparent 22%,
+            transparent 78%,
+            rgba(0,0,0,0.28)
+        );
+
+    background-size:
+        26px 26px,
+        26px 26px,
+        100% 100%;
+
+    box-shadow:
+        inset 0 0 72px rgba(0,0,0,0.52);
+
+    opacity: 0.92;
+
+    transition:
+        opacity 0.55s ease,
+        transform 0.55s ease;
+}
+
+.client-website-card:hover
+.client-website-media::before {
+    opacity: 0.08;
+}
+
+.client-website-card:hover
+.client-website-media::after {
+    opacity: 0.08;
+    transform: scale(1.03);
+}
+
+.client-website-card:hover
+.client-website-media img {
+    transform: scale(1.035);
+    filter:
+        brightness(1)
+        saturate(1)
+        contrast(1);
+}
+
+
+/* =========================================================
+   BUILD 08D — CLIENT WEBSITE CONTENT
+========================================================= */
+
+.client-website-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 26px 26px 28px;
+}
+
+.client-website-category {
+    color: rgba(22, 131, 255, 0.92);
+    font-size: 0.69rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.client-website-content h3 {
+    margin: 13px 0 0;
+    color: #ffffff;
+    font-size: 1.45rem;
+    line-height: 1.15;
+}
+
+.client-website-subtitle {
+    margin: 6px 0 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.9rem;
+}
+
+.client-website-description {
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.62);
+    line-height: 1.65;
+    font-size: 0.88rem;
+}
+
+
+/* =========================================================
+   BUILD 08E — CLIENT WEBSITE TAGS
+========================================================= */
+
+.client-website-capabilities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.client-website-capabilities span {
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.035);
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.68rem;
+}
+
+
+/* =========================================================
+   BUILD 08F — VISIT WEBSITE BUTTON
+========================================================= */
+
+.client-website-link {
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: auto;
+    padding-top: 26px;
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        color 0.25s ease,
+        gap 0.25s ease;
+}
+
+.client-website-link span {
+    color: #1683ff;
+}
+
+.client-website-link:hover {
+    color: #1683ff;
+    gap: 11px;
+}
+
+
+/* =========================================================
+   BUILD 08G — CAROUSEL ARROWS
+========================================================= */
+
+.client-websites-section {
+    position: relative;
+}
+
+.client-carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 22px;
+
+    margin-top: 34px;
+}
+
+.client-carousel-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    border: 0;
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-family: Arial, sans-serif;
+    font-size: 1.7rem;
+    font-weight: 300;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.client-carousel-arrow:hover {
+    color: #1683ff;
+}
+
+.client-carousel-prev:hover {
+    transform: translateX(-3px);
+}
+
+.client-carousel-next:hover {
+    transform: translateX(3px);
+}
+
+.client-carousel-arrow:disabled {
+    opacity: 0.22;
+    cursor: default;
+}
+
+/* =========================================================
+   BUILD 08H — RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .client-websites-heading h2 {
+        white-space: normal;
+    }
+
+    .client-websites-grid {
+        gap: clamp(18px, 2vw, 24px);
+    }
+
+    .client-website-card {
+        flex: 0 0 calc(
+            (
+                100% -
+                clamp(18px, 2vw, 24px)
+            ) / 2
+        );
+    }
+}
+
+
+@media (max-width: 640px) {
+
+    .client-websites-section {
+        margin-top: 80px;
+    }
+
+    .client-website-card {
+        flex: 0 0 100%;
+    }
+
+    .client-website-media {
+        height: 250px;
+    }
+}
+
+
+/* =========================================================
+   BUILD 09 — SKILLS / CAPABILITIES
+========================================================= */
+
+.skills-section {
+    position: relative;
+
+    padding:
+        35px
+        clamp(24px, 4vw, 72px)
+        clamp(100px, 11vw, 170px);
+
+    overflow: visible;
+
+    background:
+        linear-gradient(
+            180deg,
+            #05070b 0%,
+            #080c12 50%,
+            #05070b 100%
+        );
+}
+
+/* =========================================================
+   BUILD 09A — HEADING
+========================================================= */
+
+.skills-heading {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: none;
+
+    margin-bottom:
+        clamp(
+            50px,
+            6vw,
+            80px
+        );
+}
+
+
+.skills-heading .section-kicker {
+    display: inline-block;
+
+    margin-bottom: 16px;
+}
+
+
+.skills-heading h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            2.2rem,
+            3.4vw,
+            3.8rem
+        );
+
+    line-height: 1;
+
+    letter-spacing: -0.045em;
+
+    white-space: nowrap;
+}
+
+
+.skills-heading h2 span {
+    color: var(--accent);
+}
+
+
+.skills-heading p {
+    max-width: 720px;
+
+    margin-top: 24px;
+
+    color:
+        rgba(255, 255, 255, 0.68);
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUILD 09B — MAIN LAYOUT
+========================================================= */
+
+.skills-showcase {
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(360px, 0.82fr)
+        minmax(0, 1.5fr);
+
+    gap:
+        clamp(
+            35px,
+            5vw,
+            75px
+        );
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   BUILD 09C — LEFT SKILL GRID
+========================================================= */
+
+.skills-selector {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 14px;
+
+    align-content: center;
+}
+
+
+.skill-item {
+    position: relative;
+
+    min-height: 180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    padding: 24px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color:
+        rgba(255, 255, 255, 0.46);
+
+    font: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.skill-item:hover {
+    transform:
+        translateY(-3px);
+
+    color: #ffffff;
+
+    border-color:
+        rgba(255, 255, 255, 0.16);
+
+    background:
+        rgba(255, 255, 255, 0.045);
+}
+
+
+.skill-item.active {
+    color: #ffffff;
+
+    border-color:
+        rgba(22, 131, 255, 0.42);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(22, 131, 255, 0.13),
+            rgba(255, 255, 255, 0.035)
+        );
+
+    box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.20);
+}
+
+
+.skill-item::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--accent);
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.skill-item.active::after {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   BUILD 09C.1 — ICONS
+========================================================= */
+
+.skill-icon {
+    width: 86px;
+    height: 86px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color:
+        rgba(255, 255, 255, 0.50);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.060),
+            rgba(255, 255, 255, 0.020)
+        );
+
+    transition:
+        color 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.skill-icon svg {
+    width: 54px;
+    height: 54px;
+
+    display: block;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.55;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+.skill-item:hover
+.skill-icon {
+    color:
+        rgba(255, 255, 255, 0.88);
+
+    border-color:
+        rgba(255, 255, 255, 0.15);
+}
+
+
+.skill-item.active
+.skill-icon {
+    color: var(--accent);
+
+    border-color:
+        rgba(22, 131, 255, 0.34);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(22, 131, 255, 0.16),
+            rgba(22, 131, 255, 0.035)
+        );
+
+    box-shadow:
+        0 0 26px
+        rgba(22, 131, 255, 0.10);
+
+    transform:
+        scale(1.04);
+}
+
+
+/* =========================================================
+   BUILD 09C.2 — SKILL TEXT
+========================================================= */
+
+.skill-name {
+    width: 100%;
+
+    display: block;
+
+    margin-top: 18px;
+
+    font-size: 0.95rem;
+
+    line-height: 1.22;
+}
+
+
+.skill-name strong {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 1.12rem;
+
+    font-weight: 700;
+
+    line-height: 1.16;
+}
+
+
+/* =========================================================
+   BUILD 09D — RIGHT DISPLAY
+========================================================= */
+
+.skill-display {
+    min-width: 0;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 24px;
+
+    background: #080c12;
+
+    box-shadow:
+        0 30px 90px
+        rgba(0, 0, 0, 0.30);
+
+    transition:
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.skill-display.changing {
+    border-color:
+        rgba(22, 131, 255, 0.20);
+}
+
+
+/* =========================================================
+   BUILD 09D.1 — DISPLAY IMAGE
+========================================================= */
+
+.skill-display-media {
+    position: relative;
+
+    height:
+        clamp(
+            390px,
+            34vw,
+            560px
+        );
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #05070b,
+            #0a0f17
+        );
+}
+
+
+.skill-display-image {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+
+    object-position:
+        center center;
+
+    transition:
+        opacity 0.32s ease,
+        transform 0.55s ease,
+        filter 0.45s ease;
+
+    opacity: 1;
+
+    filter:
+        brightness(0.92)
+        contrast(1.02)
+        saturate(0.94);
+}
+
+
+.skill-display.changing
+.skill-display-image {
+    opacity: 0;
+
+    transform:
+        scale(0.985);
+}
+
+
+.skill-display-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(5, 7, 11, 0.02) 0%,
+            transparent 58%,
+            rgba(8, 12, 18, 0.70) 100%
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(5, 7, 11, 0.14),
+            transparent 16%,
+            transparent 84%,
+            rgba(5, 7, 11, 0.14)
+        );
+}
+
+
+/* =========================================================
+   BUILD 09D.2 — COUNTER
+========================================================= */
+
+.skill-display-counter {
+    position: absolute;
+
+    top: 24px;
+    right: 26px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding:
+        8px
+        12px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius: 999px;
+
+    background:
+        rgba(5, 7, 11, 0.72);
+
+    backdrop-filter:
+        blur(8px);
+
+    color:
+        rgba(255, 255, 255, 0.54);
+
+    font-size: 0.68rem;
+
+    font-weight: 700;
+}
+
+
+.skill-display-counter
+span:first-child {
+    color: #ffffff;
+}
+
+
+.skill-counter-line {
+    width: 18px;
+    height: 1px;
+
+    background:
+        rgba(255, 255, 255, 0.24);
+}
+
+
+/* =========================================================
+   BUILD 09E — DISPLAY CONTENT
+========================================================= */
+
+.skill-display-content {
+    padding:
+        30px
+        32px
+        34px;
+
+    transition:
+        opacity 0.28s ease,
+        transform 0.28s ease;
+}
+
+
+.skill-display.changing
+.skill-display-content {
+    opacity: 0.15;
+
+    transform:
+        translateY(5px);
+}
+
+
+.skill-display-label {
+    display: block;
+
+    margin-bottom: 11px;
+
+    color: var(--accent);
+
+    font-size: 0.68rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+}
+
+
+.skill-display-content h3 {
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            1.7rem,
+            2.3vw,
+            2.4rem
+        );
+
+    line-height: 1.1;
+
+    letter-spacing: -0.025em;
+}
+
+
+.skill-display-content p {
+    max-width: 760px;
+
+    margin-top: 15px;
+
+    color:
+        rgba(255, 255, 255, 0.62);
+
+    font-size: 0.92rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUILD 09F — TAGS
+========================================================= */
+
+.skill-display-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 22px;
+}
+
+
+.skill-display-tags span {
+    min-height: 28px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding:
+        0
+        11px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color:
+        rgba(255, 255, 255, 0.72);
+
+    font-size: 0.67rem;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   BUILD 09G — RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .skills-heading h2 {
+        white-space: normal;
+    }
+
+
+    .skills-showcase {
+        grid-template-columns: 1fr;
+    }
+
+
+    .skills-selector {
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(0, 1fr)
+            );
+    }
+
+
+    .skill-display-media {
+        height: 470px;
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .skills-section {
+        padding:
+            90px
+            20px;
+    }
+
+
+    .skills-selector {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+    }
+
+
+    .skill-item {
+        min-height: 135px;
+
+        padding: 16px;
+    }
+
+
+    .skill-icon {
+        width: 66px;
+        height: 66px;
+
+        border-radius: 16px;
+    }
+
+
+    .skill-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .skill-name {
+        margin-top: 14px;
+
+        font-size: 0.84rem;
+    }
+
+
+    .skill-name strong {
+        font-size: 0.98rem;
+    }
+
+
+    .skill-display-media {
+        height: 300px;
+    }
+
+
+    .skill-display-content {
+        padding:
+            24px
+            22px
+            28px;
+    }
+
+}
+
+/* =========================================================
+   BUILD 10 — BRANDS & PROJECTS LOGO LOOP
+========================================================= */
+
+.logo-loop-section {
+    position: relative;
+
+    padding:
+        10px
+        0
+        clamp(90px, 9vw, 135px);
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #05070b 0%,
+            #070a0f 48%,
+            #05070b 100%
+        );
+}
+
+
+/* =========================================================
+   BUILD 10A — HEADING
+========================================================= */
+
+.logo-loop-heading {
+    width:
+        calc(
+            100% -
+            clamp(48px, 8vw, 144px)
+        );
+
+    max-width: 1500px;
+
+    margin:
+        0
+        auto
+        42px;
+
+    text-align: center;
+}
+
+
+.logo-loop-heading .section-kicker {
+    display: inline-block;
+
+    margin-bottom: 10px;
+}
+
+
+.logo-loop-heading h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            2rem,
+            3vw,
+            3.3rem
+        );
+
+    line-height: 1.05;
+
+    letter-spacing:
+        -0.04em;
+}
+
+
+.logo-loop-heading h2 span {
+    color: var(--accent);
+}
+
+
+.logo-loop-heading p {
+    max-width: 720px;
+
+    margin:
+        16px
+        auto
+        0;
+
+    color:
+        rgba(255, 255, 255, 0.58);
+
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUILD 10B — LOOP CONTAINER
+========================================================= */
+
+.logo-loop-container {
+    position: relative;
+
+    width:
+        calc(
+            100% -
+            clamp(48px, 6vw, 110px)
+        );
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius: 22px;
+
+    background:
+        rgba(255, 255, 255, 0.012);
+
+    box-shadow:
+        inset 0 1px 0
+        rgba(255, 255, 255, 0.025);
+
+    -webkit-mask-image:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            #000 6%,
+            #000 94%,
+            transparent 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            #000 6%,
+            #000 94%,
+            transparent 100%
+        );
+}
+
+
+/* =========================================================
+   BUILD 10C — MOVING TRACK
+========================================================= */
+
+.logo-loop-track {
+    display: flex;
+
+    align-items: center;
+
+    width: max-content;
+
+    transform:
+        translate3d(0, 0, 0);
+
+    will-change: transform;
+}
+
+
+.logo-loop-group {
+    display: flex;
+
+    align-items: center;
+
+    flex-shrink: 0;
+
+    width: max-content;
+}
+
+
+/* =========================================================
+   BUILD 10D — LOGO ITEM
+========================================================= */
+
+.logo-loop-item {
+    position: relative;
+
+    width: 190px;
+    height: 120px;
+
+    flex:
+        0
+        0
+        190px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        20px
+        27px;
+}
+
+
+.logo-loop-item::after {
+    content: "";
+
+    position: absolute;
+
+    top: 27%;
+    right: 0;
+
+    width: 1px;
+    height: 46%;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.10
+        );
+}
+
+
+/* =========================================================
+   BUILD 10E — LOGO IMAGE
+========================================================= */
+
+.logo-loop-item img {
+    display: block;
+
+    max-width: 140px;
+    max-height: 68px;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    filter:
+        grayscale(1)
+        saturate(0)
+        brightness(1.20)
+        contrast(0.90);
+
+    opacity: 0.72;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+
+.logo-loop-item:hover img {
+    opacity: 1;
+
+    transform:
+        scale(1.06);
+
+    filter:
+        grayscale(1)
+        saturate(0)
+        brightness(1.55)
+        contrast(1);
+}
+
+
+/* =========================================================
+   BUILD 10F — JAVASCRIPT LOOP CONTROL
+========================================================= */
+
+.logo-loop-track {
+    animation: none !important;
+}
+
+
+/* =========================================================
+   BUILD 10G — RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .logo-loop-item {
+        width: 165px;
+        height: 105px;
+    }
+
+
+    .logo-loop-item img {
+        max-width: 118px;
+        max-height: 56px;
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .logo-loop-section {
+        padding:
+            50px
+            0
+            90px;
+    }
+
+
+    .logo-loop-heading {
+        width:
+            calc(100% - 40px);
+
+        margin-bottom: 36px;
+    }
+
+
+    .logo-loop-container {
+        width:
+            calc(100% - 28px);
+
+        border-radius: 18px;
+    }
+
+
+    .logo-loop-item {
+        width: 145px;
+        height: 94px;
+    }
+
+
+    .logo-loop-item img {
+        max-width: 105px;
+        max-height: 50px;
+    }
+
+
+    .logo-loop-track {
+        animation-duration: 45s;
+    }
+
+}
+
+/* =========================================================
+   BUILD 11 — IMPACT
+========================================================= */
+
+.impact-section {
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        34px
+        clamp(28px, 4vw, 72px);
+
+    overflow: hidden;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+    background:
+        linear-gradient(
+            90deg,
+            #05090e 0%,
+            #07111b 50%,
+            #05090e 100%
+        );
+}
+
+
+/* =========================================================
+   BUILD 11A — CONTAINER
+========================================================= */
+
+.impact-container {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 1700px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr
+        1fr
+        1.35fr
+        1.25fr;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   BUILD 11B — ITEMS
+========================================================= */
+
+.impact-item {
+    position: relative;
+
+    min-height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+    padding:
+        0
+        clamp(18px, 2vw, 34px);
+}
+
+
+.impact-item:first-child {
+    padding-left: 0;
+}
+
+
+.impact-item:not(:last-of-type)::after {
+    content: "";
+
+    position: absolute;
+
+    top: 16%;
+
+    right: 0;
+
+    width: 1px;
+    height: 68%;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+}
+
+
+/* =========================================================
+   BUILD 11C — ICONS
+========================================================= */
+
+.impact-icon {
+    width: 30px;
+    height: 30px;
+
+    flex: 0 0 30px;
+
+    color: #1683ff;
+}
+
+
+.impact-icon svg {
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+}
+
+
+.impact-icon-bolt svg {
+    fill: currentColor;
+
+    stroke: none;
+}
+
+
+/* =========================================================
+   BUILD 11D — TEXT
+========================================================= */
+
+.impact-copy {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.impact-copy strong {
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            0.92rem,
+            1vw,
+            1.05rem
+        );
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    white-space: nowrap;
+}
+
+
+.impact-copy span {
+    color:
+        rgba(255, 255, 255, 0.52);
+
+    font-size: 0.76rem;
+
+    line-height: 1.25;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   BUILD 11E — CTA
+========================================================= */
+
+.impact-cta {
+    display: flex;
+
+    justify-content: flex-end;
+
+    padding-left:
+        clamp(22px, 2vw, 36px);
+}
+
+
+.impact-button {
+    min-width: 230px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 22px;
+
+    padding:
+        15px
+        27px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #20a2ff 0%,
+            #1678ff 100%
+        );
+
+    color: #02060b;
+
+    font-size: 0.82rem;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 10px 34px
+        rgba(22, 131, 255, 0.20);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.impact-button span {
+    font-size: 1.25rem;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.impact-button:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 14px 42px
+        rgba(22, 131, 255, 0.30);
+}
+
+
+.impact-button:hover span {
+    transform:
+        translateX(4px);
+}
+
+
+/* =========================================================
+   BUILD 11F — RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .impact-container {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .impact-item {
+        padding: 22px;
+    }
+
+
+    .impact-item:first-child {
+        padding-left: 22px;
+    }
+
+
+    .impact-item::after {
+        display: none;
+    }
+
+
+    .impact-cta {
+        grid-column:
+            1 / -1;
+
+        justify-content: center;
+
+        padding:
+            26px
+            0
+            4px;
+    }
+
+}
+
+
+@media (max-width: 640px) {
+
+    .impact-section {
+        padding:
+            28px
+            20px;
+    }
+
+
+    .impact-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .impact-item {
+        min-height: 78px;
+
+        padding:
+            18px
+            8px;
+
+        border-bottom:
+            1px solid
+            rgba(255, 255, 255, 0.07);
+    }
+
+
+    .impact-item:first-child {
+        padding-left: 8px;
+    }
+
+
+    .impact-cta {
+        grid-column: auto;
+
+        padding-top: 28px;
+    }
+
+
+    .impact-button {
+        width: 100%;
+    }
+
+}
+
+/* =========================================================
+   BUILD 12 — ABOUT
+========================================================= */
+
+.about-section {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 820px;
+
+    overflow: hidden;
+
+    background:
+        #03070b;
+}
+
+
+.about-container {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(
+        1680px,
+        calc(100% - 80px)
+    );
+
+    min-height: 820px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        0.92fr
+        1.08fr;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   BUILD 12A — CONTENT
+========================================================= */
+
+.about-content {
+    position: relative;
+
+    z-index: 5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    max-width: 680px;
+
+    padding:
+        100px
+        30px
+        100px
+        0;
+}
+
+
+.about-kicker {
+    display: inline-block;
+
+    margin-bottom: 22px;
+
+    color: #1683ff;
+
+    font-size: 0.78rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.28em;
+
+    text-transform: uppercase;
+}
+
+
+.about-title {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            3rem,
+            4.4vw,
+            5.6rem
+        );
+
+    font-weight: 700;
+
+    line-height: 0.98;
+
+    letter-spacing: -0.055em;
+}
+
+
+.about-title span {
+    color: #1683ff;
+}
+
+
+.about-text {
+    max-width: 640px;
+
+    margin-top: 38px;
+}
+
+
+.about-text p {
+    margin:
+        0
+        0
+        20px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.70
+        );
+
+    font-size:
+        clamp(
+            0.98rem,
+            1.15vw,
+            1.08rem
+        );
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   BUILD 12B — READ MORE
+========================================================= */
+
+.about-read-more {
+    width: max-content;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 12px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 0.92rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease;
+}
+
+
+.about-read-more::after {
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+
+    height: 1px;
+
+    background: #1683ff;
+}
+
+
+.about-read-more span {
+    color: #1683ff;
+
+    font-size: 1.15rem;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.about-read-more:hover {
+    color: #1683ff;
+}
+
+
+.about-read-more:hover span {
+    transform:
+        translateX(5px);
+}
+
+
+/* =========================================================
+   BUILD 12C — IMAGE AREA / INTEGRATED PORTRAIT
+========================================================= */
+
+.about-visual {
+    position: relative;
+
+    min-width: 0;
+
+    min-height: 820px;
+
+    overflow: visible;
+}
+
+
+.about-image-wrap {
+    position: absolute;
+
+    top: -3%;
+    right: -110px;
+    bottom: -5%;
+    left: -90px;
+
+    overflow: visible;
+
+    background: transparent;
+}
+
+
+/* =========================================================
+   BUILD 12C.1 — LEFT SIDE FUSION
+========================================================= */
+
+.about-image-wrap::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+
+            #03070b 0%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.98
+            ) 5%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.82
+            ) 13%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.46
+            ) 24%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.14
+            ) 37%,
+
+            transparent 52%
+        );
+}
+
+
+/* =========================================================
+   BUILD 12C.2 — TOP / BOTTOM NATURAL FUSION
+========================================================= */
+
+.about-image-wrap::after {
+    content: "";
+
+    position: absolute;
+
+    inset:
+        -2%
+        -2%
+        -4%
+        -2%;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            180deg,
+
+            #03070b 0%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.68
+            ) 4%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.22
+            ) 10%,
+
+            transparent 18%,
+
+            transparent 66%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.05
+            ) 72%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.22
+            ) 79%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.55
+            ) 87%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.88
+            ) 94%,
+
+            #03070b 100%
+        );
+}
+
+
+/* =========================================================
+   BUILD 12C.3 — PORTRAIT
+========================================================= */
+
+.about-image {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: auto;
+
+    width: 92%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position:
+        62%
+        10%;
+
+    background: transparent;
+
+    filter:
+        contrast(1.02)
+        saturate(0.96);
+
+    /*
+       A máscara não termina mais como um
+       retângulo rígido.
+
+       A imagem desaparece gradualmente nas
+       quatro direções e principalmente na base.
+    */
+
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse 88% 96%
+            at 62% 43%,
+
+            #000 0%,
+
+            #000 50%,
+
+            rgba(
+                0,
+                0,
+                0,
+                0.98
+            ) 60%,
+
+            rgba(
+                0,
+                0,
+                0,
+                0.88
+            ) 69%,
+
+            rgba(
+                0,
+                0,
+                0,
+                0.58
+            ) 79%,
+
+            rgba(
+                0,
+                0,
+                0,
+                0.22
+            ) 90%,
+
+            transparent 100%
+        );
+
+    mask-image:
+        radial-gradient(
+            ellipse 88% 96%
+            at 62% 43%,
+
+            #000 0%,
+
+            #000 50%,
+
+            rgba(
+                0,
+                0,
+                0,
+                0.98
+            ) 60%,
+
+            rgba(
+                0,
+                0,
+                0,
+                0.88
+            ) 69%,
+
+            rgba(
+                0,
+                0,
+                0,
+                0.58
+            ) 79%,
+
+            rgba(
+                0,
+                0,
+                0,
+                0.22
+            ) 90%,
+
+            transparent 100%
+        );
+}
+
+
+/* =========================================================
+   BUILD 12D — CINEMATIC PORTRAIT BLEND
+========================================================= */
+
+.about-visual::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: 4;
+
+    top: -4%;
+    bottom: -5%;
+    left: -10%;
+
+    width: 48%;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+
+            #03070b 0%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.92
+            ) 24%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.56
+            ) 48%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.20
+            ) 70%,
+
+            transparent 100%
+        );
+}
+
+
+/* =========================================================
+   BUILD 12D.1 — LOWER BODY FUSION
+========================================================= */
+
+.about-visual::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 4;
+
+    left: -12%;
+    right: -12%;
+    bottom: -5%;
+
+    height: 38%;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+
+            transparent 0%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.03
+            ) 18%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.12
+            ) 38%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.36
+            ) 58%,
+
+            rgba(
+                3,
+                7,
+                11,
+                0.72
+            ) 78%,
+
+            #03070b 100%
+        );
+}
+
+/* =========================================================
+   BUILD 12E — MODAL
+========================================================= */
+
+.about-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 28px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.28s ease,
+        visibility 0.28s ease;
+}
+
+
+.about-modal.is-open {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+.about-modal-backdrop {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.82
+        );
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+}
+
+
+.about-modal-panel {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(
+        900px,
+        100%
+    );
+
+    max-height:
+        calc(
+            100vh - 56px
+        );
+
+    overflow-y: auto;
+
+    padding:
+        clamp(
+            42px,
+            5vw,
+            72px
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.10
+        );
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #08111b 0%,
+            #03070b 65%
+        );
+
+    box-shadow:
+        0
+        30px
+        120px
+        rgba(
+            0,
+            0,
+            0,
+            0.72
+        );
+}
+
+
+.about-modal-close {
+    position: absolute;
+
+    top: 20px;
+    right: 24px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.04
+        );
+
+    color: #ffffff;
+
+    font-size: 1.65rem;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.about-modal-close:hover {
+    background:
+        rgba(
+            22,
+            131,
+            255,
+            0.15
+        );
+
+    border-color:
+        rgba(
+            22,
+            131,
+            255,
+            0.45
+        );
+}
+
+
+.about-modal-kicker {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: #1683ff;
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.25em;
+
+    text-transform: uppercase;
+}
+
+
+.about-modal-title {
+    max-width: 700px;
+
+    margin:
+        0
+        0
+        36px;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3.6rem
+        );
+
+    line-height: 1.04;
+
+    letter-spacing: -0.04em;
+}
+
+
+.about-modal-title span {
+    color: #1683ff;
+}
+
+
+.about-modal-text {
+    max-width: 760px;
+}
+
+
+.about-modal-text p {
+    margin:
+        0
+        0
+        20px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.70
+        );
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+}
+
+
+.about-modal-highlight {
+    margin-top: 32px !important;
+
+    padding-left: 20px;
+
+    border-left:
+        2px solid
+        #1683ff;
+
+    color:
+        #ffffff !important;
+
+    font-size:
+        1.05rem !important;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   BUILD 12F — RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .about-section {
+        min-height: auto;
+    }
+
+
+    .about-container {
+        width:
+            min(
+                100% - 48px,
+                980px
+            );
+
+        min-height: auto;
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .about-content {
+        max-width: 760px;
+
+        padding:
+            90px
+            0
+            40px;
+    }
+
+
+    .about-visual {
+        min-height: 720px;
+    }
+
+
+    .about-image-wrap {
+        inset:
+            0
+            -70px
+            0
+            -70px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .about-container {
+        width:
+            calc(
+                100% - 36px
+            );
+    }
+
+
+    .about-content {
+        padding-top: 72px;
+    }
+
+
+    .about-title {
+        font-size:
+            clamp(
+                2.55rem,
+                12vw,
+                4rem
+            );
+    }
+
+
+    .about-visual {
+        min-height: 580px;
+    }
+
+
+    .about-image-wrap {
+        inset:
+            0
+            -100px
+            0
+            -70px;
+    }
+
+
+    .about-image {
+        object-position:
+            60%
+            center;
+    }
+
+
+    .about-modal {
+        padding: 16px;
+    }
+
+
+    .about-modal-panel {
+        padding:
+            50px
+            24px
+            34px;
+
+        border-radius: 18px;
+    }
+
+}
+
+/* =========================================================
+   BUILD 13 — CONTACT
+========================================================= */
+
+.contact-section {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    padding:
+        100px
+        0
+        80px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(22, 131, 255, 0.08),
+            transparent 36%
+        ),
+        linear-gradient(
+            180deg,
+            #03070b 0%,
+            #020609 100%
+        );
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+}
+
+
+.contact-container {
+    width:
+        min(
+            1500px,
+            calc(100% - 80px)
+        );
+
+    margin:
+        0
+        auto;
+}
+
+
+/* =========================================================
+   BUILD 13A — HEADING
+========================================================= */
+
+.contact-heading {
+    max-width: 760px;
+
+    margin:
+        0
+        auto
+        48px;
+
+    text-align: center;
+}
+
+
+.contact-kicker {
+    display: block;
+
+    margin-bottom: 17px;
+
+    color: #1683ff;
+
+    font-size: 0.76rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.30em;
+
+    text-transform: uppercase;
+}
+
+
+.contact-title {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size:
+        clamp(
+            3rem,
+            5vw,
+            5rem
+        );
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: -0.05em;
+}
+
+
+.contact-title span {
+    color: #1683ff;
+}
+
+
+.contact-intro {
+    max-width: 700px;
+
+    margin:
+        25px
+        auto
+        0;
+
+    color:
+        rgba(255, 255, 255, 0.67);
+
+    font-size: 1.04rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUILD 13B — GRID
+========================================================= */
+
+.contact-grid {
+    display: grid;
+
+    grid-template-columns:
+        0.82fr
+        1fr;
+
+    gap: 28px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   BUILD 13C — CONTACT INFO
+========================================================= */
+
+.contact-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.contact-method {
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    min-height: 112px;
+
+    padding:
+        20px
+        24px;
+
+    border:
+        1px solid
+        rgba(22, 131, 255, 0.32);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(6, 17, 27, 0.86),
+            rgba(3, 9, 15, 0.72)
+        );
+
+    color: inherit;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.contact-method:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(22, 131, 255, 0.65);
+
+    background:
+        rgba(8, 22, 36, 0.90);
+
+    box-shadow:
+        0
+        12px
+        34px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   CONTACT ICONS
+========================================================= */
+
+.contact-method-icon {
+    width: 60px;
+    height: 60px;
+
+    flex:
+        0
+        0
+        60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+}
+
+
+.contact-method-icon svg {
+    width: 31px;
+    height: 31px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+}
+
+
+.contact-email-icon {
+    color: #1683ff;
+
+    background:
+        rgba(22, 131, 255, 0.13);
+}
+
+
+.contact-whatsapp-icon {
+    background: transparent;
+
+    box-shadow: none;
+
+    overflow: visible;
+}
+
+.contact-whatsapp-image {
+    width: 60px;
+    height: 60px;
+
+    display: block;
+
+    object-fit: contain;
+}
+/* =========================================================
+   CONTACT TEXT
+========================================================= */
+
+.contact-method-copy {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    text-align: left;
+}
+
+
+.contact-method-copy strong {
+    display: block;
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 0.92rem;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+}
+
+
+.contact-method-main {
+    display: block;
+
+    margin: 0;
+
+    color: #1683ff;
+
+    font-size: 1.06rem;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+
+    text-decoration: none;
+}
+
+
+.contact-method-copy small {
+    display: block;
+
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.55);
+
+    font-size: 0.82rem;
+
+    font-weight: 400;
+
+    line-height: 1.35;
+}
+
+
+/* força o link inteiro a não herdar azul padrão do navegador */
+
+.contact-method,
+.contact-method:link,
+.contact-method:visited,
+.contact-method:hover,
+.contact-method:active {
+    text-decoration: none;
+}
+
+
+.contact-method strong {
+    color: #ffffff;
+}
+
+
+.contact-method .contact-method-main {
+    color: #1683ff;
+}
+
+
+.contact-method small {
+    color:
+        rgba(255, 255, 255, 0.55);
+}
+
+/* =========================================================
+   BUILD 13D — LANGUAGES
+========================================================= */
+
+.contact-languages {
+    margin:
+        8px
+        0
+        2px;
+
+    padding:
+        23px
+        10px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    text-align: center;
+}
+
+
+.contact-languages-title {
+    display: block;
+
+    margin-bottom: 19px;
+
+    color: #1683ff;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.24em;
+
+    text-transform: uppercase;
+}
+
+
+.contact-language-list {
+    display: flex;
+
+    justify-content:
+        space-around;
+
+    align-items: flex-start;
+}
+
+
+.contact-language {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color:
+        rgba(255, 255, 255, 0.82);
+
+    font-size: 0.8rem;
+}
+
+
+.contact-flag {
+    position: relative;
+
+    display: inline-block;
+
+    width: 28px;
+    height: 18px;
+
+    overflow: hidden;
+
+    border-radius: 3px;
+
+    box-shadow:
+        0
+        0
+        0
+        1px
+        rgba(255, 255, 255, 0.12);
+}
+/* UK */
+
+.flag-uk {
+    background:
+        linear-gradient(
+            33deg,
+            transparent 42%,
+            #ffffff 42%,
+            #ffffff 48%,
+            #c8102e 48%,
+            #c8102e 53%,
+            #ffffff 53%,
+            #ffffff 59%,
+            transparent 59%
+        ),
+        linear-gradient(
+            -33deg,
+            transparent 42%,
+            #ffffff 42%,
+            #ffffff 48%,
+            #c8102e 48%,
+            #c8102e 53%,
+            #ffffff 53%,
+            #ffffff 59%,
+            transparent 59%
+        ),
+        #012169;
+}
+
+.flag-uk::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 11px;
+
+    width: 6px;
+    height: 100%;
+
+    background: #ffffff;
+}
+
+.flag-uk::after {
+    content: "";
+
+    position: absolute;
+
+    top: 6px;
+    left: 0;
+
+    width: 100%;
+    height: 6px;
+
+    background: #ffffff;
+}
+
+.flag-uk span::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: 2;
+
+    top: 0;
+    left: 13px;
+
+    width: 3px;
+    height: 100%;
+
+    background: #c8102e;
+}
+
+.flag-uk span::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 2;
+
+    top: 7.5px;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background: #c8102e;
+}
+
+
+/* SPAIN */
+
+.flag-es {
+    background:
+        linear-gradient(
+            180deg,
+            #aa151b 0%,
+            #aa151b 25%,
+            #f1bf00 25%,
+            #f1bf00 75%,
+            #aa151b 75%,
+            #aa151b 100%
+        );
+}
+
+
+/* BRAZIL */
+
+.flag-br {
+    background: #009c3b;
+}
+
+.flag-br::before {
+    content: "";
+
+    position: absolute;
+
+    top: 3px;
+    left: 7px;
+
+    width: 14px;
+    height: 12px;
+
+    background: #ffdf00;
+
+    transform: rotate(45deg);
+}
+
+.flag-br::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 2;
+
+    top: 5px;
+    left: 10px;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #002776;
+}
+
+/* =========================================================
+   BUILD 13E — PHONE NOTICE
+========================================================= */
+
+.contact-notice {
+    display: flex;
+
+    gap: 18px;
+
+    align-items: flex-start;
+
+    padding:
+        22px
+        24px;
+
+    border:
+        1px solid
+        rgba(22, 131, 255, 0.25);
+
+    border-radius: 14px;
+
+    background:
+        rgba(4, 13, 21, 0.72);
+}
+
+
+.contact-notice-icon {
+    width: 40px;
+    height: 40px;
+
+    flex:
+        0
+        0
+        40px;
+
+    color:
+        rgba(255, 255, 255, 0.56);
+}
+
+
+.contact-notice-icon svg {
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+}
+
+
+.contact-notice strong {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #ffffff;
+
+    font-size: 0.9rem;
+}
+
+
+.contact-notice p {
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.58);
+
+    font-size: 0.82rem;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   BUILD 13F — FORM PANEL
+========================================================= */
+
+.contact-form-panel {
+    padding:
+        28px
+        30px;
+
+    border:
+        1px solid
+        rgba(22, 131, 255, 0.30);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(7, 18, 29, 0.90),
+            rgba(3, 9, 15, 0.86)
+        );
+
+    box-shadow:
+        0
+        20px
+        70px
+        rgba(0, 0, 0, 0.26);
+}
+
+
+.contact-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+.contact-form-row {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+.contact-field {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.contact-field label {
+    color: #ffffff;
+
+    font-size: 0.78rem;
+
+    font-weight: 600;
+}
+
+
+.contact-field label span {
+    color: #ff4955;
+}
+
+
+.contact-field input,
+.contact-field textarea {
+    width: 100%;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.17);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    padding:
+        14px
+        16px;
+
+    background:
+        rgba(13, 29, 42, 0.86);
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 0.90rem;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.contact-field textarea {
+    resize: vertical;
+
+    min-height: 170px;
+}
+
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+    color:
+        rgba(255, 255, 255, 0.34);
+}
+
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+    border-color:
+        rgba(22, 131, 255, 0.82);
+
+    box-shadow:
+        0
+        0
+        0
+        3px
+        rgba(22, 131, 255, 0.08);
+}
+
+
+/* =========================================================
+   BUILD 13G — SEND BUTTON
+========================================================= */
+
+.contact-submit {
+    width: 100%;
+
+    min-height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    border: 0;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1683ff,
+            #0b96ff
+        );
+
+    color: #ffffff;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0
+        10px
+        34px
+        rgba(22, 131, 255, 0.20);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.contact-submit:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0
+        14px
+        42px
+        rgba(22, 131, 255, 0.30);
+}
+
+
+.contact-submit-icon {
+    font-size: 1.05rem;
+}
+
+
+.contact-form-security {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    color:
+        rgba(255, 255, 255, 0.48);
+
+    font-size: 0.72rem;
+}
+
+
+.contact-form-security p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   BUILD 13H — BOTTOM AREA
+========================================================= */
+
+.contact-bottom {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr)
+        1.25fr;
+
+    gap: 24px;
+
+    align-items: end;
+
+    margin-top: 48px;
+}
+
+
+.contact-bottom-item {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    gap: 4px;
+}
+
+
+.contact-bottom-icon {
+    margin-bottom: 4px;
+
+    color: #1683ff;
+
+    font-size: 2rem;
+}
+
+
+.contact-bottom-item strong {
+    color: #ffffff;
+
+    font-size: 0.82rem;
+}
+
+
+.contact-bottom-item span {
+    color:
+        rgba(255, 255, 255, 0.48);
+
+    font-size: 0.72rem;
+}
+
+
+.contact-signature {
+    display: flex;
+
+    justify-content: flex-end;
+
+    color:
+        rgba(255, 255, 255, 0.70);
+
+    font-family:
+        "Segoe Script",
+        "Brush Script MT",
+        cursive;
+
+    font-size:
+        clamp(
+            1.4rem,
+            2vw,
+            2rem
+        );
+
+    line-height: 1.3;
+
+    transform:
+        rotate(-4deg);
+}
+
+
+/* =========================================================
+   BUILD 13I — RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .contact-bottom {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+
+    .contact-signature {
+        grid-column:
+            1 / -1;
+
+        justify-content: center;
+
+        margin-top: 20px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .contact-section {
+        padding:
+            76px
+            0
+            60px;
+    }
+
+
+    .contact-container {
+        width:
+            calc(
+                100% - 36px
+            );
+    }
+
+
+    .contact-form-row {
+        grid-template-columns: 1fr;
+    }
+
+
+    .contact-form-panel {
+        padding:
+            24px
+            18px;
+    }
+
+
+    .contact-language-list {
+        justify-content:
+            space-between;
+    }
+
+
+    .contact-bottom {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+    }
+
+
+    .contact-signature {
+        grid-column: auto;
+    }
+
+}
+
+/* =========================================================
+   BUILD 14 — FOOTER
+========================================================= */
+
+.site-footer {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    padding:
+        58px
+        0
+        34px;
+
+    border-top:
+        1px solid
+        rgba(22, 131, 255, 0.52);
+
+    background:
+        radial-gradient(
+            ellipse at 72% 35%,
+            rgba(22, 131, 255, 0.055),
+            transparent 38%
+        ),
+        linear-gradient(
+            180deg,
+            #04101a 0%,
+            #02080e 100%
+        );
+}
+
+
+.site-footer::before {
+    content: "";
+
+    position: absolute;
+
+    top: 12%;
+    right: 9%;
+
+    width: 46%;
+    height: 64%;
+
+    pointer-events: none;
+
+    opacity: 0.14;
+
+    background-image:
+        radial-gradient(
+            circle,
+            #1683ff 1.2px,
+            transparent 1.5px
+        );
+
+    background-size:
+        10px
+        10px;
+
+    -webkit-mask-image:
+        radial-gradient(
+            ellipse,
+            #000 0%,
+            transparent 70%
+        );
+
+    mask-image:
+        radial-gradient(
+            ellipse,
+            #000 0%,
+            transparent 70%
+        );
+}
+
+
+.footer-container {
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        min(
+            1600px,
+            calc(100% - 80px)
+        );
+
+    margin:
+        0
+        auto;
+}
+
+
+/* =========================================================
+   BUILD 14A — MAIN FOOTER
+========================================================= */
+
+.footer-main {
+    display: grid;
+
+    grid-template-columns:
+        1.15fr
+        1.75fr
+        1.15fr
+        1.1fr;
+
+    align-items: center;
+
+    min-height: 150px;
+}
+
+
+/* BRAND */
+
+.footer-brand {
+    min-width: 0;
+
+    padding-right: 38px;
+}
+
+
+.footer-logo {
+    display: block;
+
+    width: min(
+        100%,
+        310px
+    );
+
+    height: auto;
+
+    object-fit: contain;
+
+    object-position: left center;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.footer-nav {
+    min-height: 110px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap:
+        clamp(
+            20px,
+            2.2vw,
+            40px
+        );
+
+    padding:
+        0
+        36px;
+
+    border-left:
+        1px solid
+        rgba(255, 255, 255, 0.22);
+
+    border-right:
+        1px solid
+        rgba(255, 255, 255, 0.22);
+}
+
+
+.footer-nav a {
+    color:
+        rgba(255, 255, 255, 0.78);
+
+    font-size: 0.88rem;
+
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition:
+        color 0.22s ease;
+}
+
+
+.footer-nav a:hover {
+    color: #1683ff;
+}
+
+
+/* =========================================================
+   SOCIAL LINKS
+========================================================= */
+
+.footer-socials {
+    min-height: 110px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 22px;
+
+    border-right:
+        1px solid
+        rgba(255, 255, 255, 0.22);
+}
+
+
+.footer-social-link {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color:
+        rgba(255, 255, 255, 0.88);
+
+    background:
+        rgba(3, 13, 22, 0.55);
+
+    text-decoration: none;
+
+    transition:
+        transform 0.22s ease,
+        color 0.22s ease,
+        background 0.22s ease;
+}
+
+
+.footer-social-link:hover {
+    transform:
+        translateY(-3px);
+
+    color: #1683ff;
+
+    background:
+        rgba(22, 131, 255, 0.10);
+}
+
+
+.footer-social-link svg {
+    width: 23px;
+    height: 23px;
+
+    fill: currentColor;
+}
+
+
+.footer-social-link:nth-child(3) svg {
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+}
+
+
+.footer-social-whatsapp {
+    background: transparent;
+}
+
+
+.footer-social-whatsapp img {
+    display: block;
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   FOOTER MESSAGE
+========================================================= */
+
+.footer-message {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    padding-left: 36px;
+
+    text-align: right;
+}
+
+
+.footer-message span {
+    color:
+        rgba(255, 255, 255, 0.72);
+
+    font-family:
+        "Segoe Script",
+        "Brush Script MT",
+        cursive;
+
+    font-size:
+        clamp(
+            1.25rem,
+            1.8vw,
+            1.9rem
+        );
+
+    font-style: italic;
+
+    line-height: 1.25;
+
+    transform:
+        rotate(-5deg);
+}
+
+
+.footer-message-line {
+    width: 116px;
+    height: 2px;
+
+    margin-top: 16px;
+
+    margin-right: 5px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #1683ff
+        );
+
+    transform:
+        rotate(-10deg);
+}
+
+
+/* =========================================================
+   BUILD 14B — FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1.5fr
+        1fr;
+
+    align-items: center;
+
+    min-height: 92px;
+
+    margin-top: 24px;
+
+    padding-top: 24px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.14);
+}
+
+
+.footer-principles {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color:
+        rgba(255, 255, 255, 0.58);
+
+    font-size: 0.84rem;
+}
+
+
+.footer-principles i {
+    color:
+        rgba(255, 255, 255, 0.34);
+
+    font-style: normal;
+}
+
+
+.footer-copyright {
+    grid-column: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.footer-copyright-line {
+    display: block;
+
+    width: 72px;
+    height: 1px;
+
+    margin-bottom: 22px;
+
+    background: #1683ff;
+}
+
+
+.footer-copyright p {
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.54);
+
+    font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   BUILD 14C — RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .footer-main {
+        grid-template-columns:
+            1fr
+            2fr
+            1fr;
+    }
+
+
+    .footer-message {
+        grid-column:
+            1 / -1;
+
+        align-items: center;
+
+        padding:
+            34px
+            0
+            0;
+
+        text-align: center;
+    }
+
+
+    .footer-socials {
+        border-right: 0;
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .site-footer {
+        padding-top: 48px;
+    }
+
+
+    .footer-container {
+        width:
+            calc(100% - 36px);
+    }
+
+
+    .footer-main {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 32px;
+    }
+
+
+    .footer-brand {
+        padding: 0;
+    }
+
+
+    .footer-logo {
+        width: 250px;
+
+        margin: 0 auto;
+    }
+
+
+    .footer-nav {
+        min-height: auto;
+
+        flex-wrap: wrap;
+
+        padding:
+            24px
+            0;
+
+        border-left: 0;
+        border-right: 0;
+
+        border-top:
+            1px solid
+            rgba(255, 255, 255, 0.12);
+
+        border-bottom:
+            1px solid
+            rgba(255, 255, 255, 0.12);
+    }
+
+
+    .footer-socials {
+        min-height: auto;
+    }
+
+
+    .footer-message {
+        padding-top: 10px;
+    }
+
+
+    .footer-bottom {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 28px;
+
+        padding-top: 30px;
+    }
+
+
+    .footer-principles {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+}
+
+
+/* =========================================================
+   BUILD 16 — ANANKE INSPIRED SCROLL ENTRANCE
+========================================================= */
+
+/*
+   Base de entrada.
+   O JS adiciona .entrance-ready somente depois de carregar,
+   evitando esconder conteúdo caso JavaScript esteja desativado.
+*/
+
+.entrance-ready {
+    opacity: 0;
+    transform:
+        translate3d(0, 70px, 0)
+        scale(0.985);
+
+    transition:
+        opacity 1.05s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+
+    will-change:
+        opacity,
+        transform;
+}
+
+
+/* ELEMENTO ENTROU NO VIEWPORT */
+
+.entrance-ready.entrance-active {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0)
+        scale(1);
+}
+
+
+/* =========================================================
+   BUILD 16A — DIREÇÕES DIFERENTES
+========================================================= */
+
+/* TEXTO / CONTEÚDO */
+
+.work-intro-layout.entrance-ready,
+.client-websites-heading.entrance-ready,
+.skills-heading.entrance-ready,
+.logo-loop-heading.entrance-ready,
+.about-content.entrance-ready,
+.contact-heading.entrance-ready,
+.contact-info.entrance-ready {
+
+    transform:
+        translate3d(-55px, 55px, 0);
+}
+
+
+/* IMAGENS / BLOCOS VISUAIS */
+
+.skills-selector.entrance-ready,
+.skill-display.entrance-ready,
+.about-visual.entrance-ready,
+.contact-form.entrance-ready {
+
+    transform:
+        translate3d(55px, 65px, 0)
+        scale(0.975);
+}
+
+
+/* ELEMENTOS CENTRAIS */
+
+.project-filters.entrance-ready,
+.projects-grid.entrance-ready,
+.client-websites-carousel.entrance-ready,
+.logo-loop-container.entrance-ready {
+
+    transform:
+        translate3d(0, 85px, 0)
+        scale(0.985);
+}
+
+
+/* TODOS TERMINAM NA POSIÇÃO ORIGINAL */
+
+.work-intro-layout.entrance-active,
+.client-websites-heading.entrance-active,
+.skills-heading.entrance-active,
+.logo-loop-heading.entrance-active,
+.about-content.entrance-active,
+.contact-heading.entrance-active,
+.contact-info.entrance-active,
+.skills-selector.entrance-active,
+.skill-display.entrance-active,
+.about-visual.entrance-active,
+.contact-form.entrance-active,
+.project-filters.entrance-active,
+.projects-grid.entrance-active,
+.client-websites-carousel.entrance-active,
+.logo-loop-container.entrance-active {
+
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0)
+        scale(1);
+}
+
+
+/* =========================================================
+   BUILD 16B — PROJECT CARDS STAGGER
+========================================================= */
+
+.projects-grid.entrance-ready .project-card {
+
+    opacity: 0;
+
+    transform:
+        translate3d(0, 75px, 0)
+        rotateX(3deg);
+
+    transform-origin:
+        center bottom;
+
+    transition:
+        opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.projects-grid.entrance-active .project-card {
+
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0)
+        rotateX(0);
+}
+
+
+.projects-grid.entrance-active .project-card:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.projects-grid.entrance-active .project-card:nth-child(2) {
+    transition-delay: 0.17s;
+}
+
+.projects-grid.entrance-active .project-card:nth-child(3) {
+    transition-delay: 0.29s;
+}
+
+
+/* =========================================================
+   BUILD 16C — CLIENT WEBSITE CARDS STAGGER
+========================================================= */
+
+.client-websites-carousel.entrance-ready
+.client-website-card {
+
+    opacity: 0;
+
+    transform:
+        translate3d(45px, 65px, 0);
+
+    transition:
+        opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.client-websites-carousel.entrance-active
+.client-website-card {
+
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0);
+}
+
+
+.client-websites-carousel.entrance-active
+.client-website-card:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.client-websites-carousel.entrance-active
+.client-website-card:nth-child(2) {
+    transition-delay: 0.14s;
+}
+
+.client-websites-carousel.entrance-active
+.client-website-card:nth-child(3) {
+    transition-delay: 0.23s;
+}
+
+.client-websites-carousel.entrance-active
+.client-website-card:nth-child(4) {
+    transition-delay: 0.32s;
+}
+
+/* =========================================================
+   BUILD 17 — SELECTED WORK / CINEMATIC 3D ENTRANCE
+========================================================= */
+
+
+/* cria profundidade apenas na área dos projetos */
+
+.projects-grid {
+    perspective: 1400px;
+    perspective-origin: 50% 35%;
+}
+
+
+/* estado inicial de cada projeto */
+
+.projects-grid.entrance-ready .project-card {
+
+    opacity: 0;
+
+    transform:
+        translate3d(0, 115px, -90px)
+        rotateX(7deg)
+        scale(0.94);
+
+    transform-origin: center bottom;
+
+    filter:
+        brightness(0.72)
+        blur(3px);
+
+    transition:
+        opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.55s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+    will-change:
+        opacity,
+        transform,
+        filter;
+}
+
+
+.projects-grid.entrance-active .project-card {
+
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0)
+        rotateX(0deg)
+        scale(1);
+
+    filter:
+        brightness(1)
+        blur(0);
+}
+
+
+.projects-grid.entrance-active .project-card:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.projects-grid.entrance-active .project-card:nth-child(2) {
+    transition-delay: 0.22s;
+}
+
+.projects-grid.entrance-active .project-card:nth-child(3) {
+    transition-delay: 0.39s;
+}
+/* =========================================================
+   BUILD 18 — SELECTED WORK / SCROLL DEPTH
+========================================================= */
+
+
+/* INTRO — acompanha suavemente o scroll */
+
+.work-intro-layout {
+    translate: 0 var(--work-scroll-y, 0px);
+}
+
+
+/* CARDS — movimento individual durante o scroll */
+
+.projects-grid .project-card {
+    translate: 0 var(--card-scroll-y, 0px);
+    rotate: var(--card-scroll-rotate, 0deg);
+}
+/* =========================================================
+   BUILD 19 — SKILLS / EXPAND REVEAL
+========================================================= */
+
+
+/* TÍTULO — surge de baixo */
+
+.skills-heading.entrance-ready {
+    opacity: 0;
+
+    transform:
+        translate3d(0, 55px, 0);
+
+    transition:
+        opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.skills-heading.entrance-active {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0);
+}
+
+
+/* SELETOR — abre horizontalmente */
+
+.skills-selector.entrance-ready {
+    opacity: 0;
+
+    transform:
+        scaleX(0.78);
+
+    transform-origin:
+        center center;
+
+    transition:
+        opacity 0.9s ease,
+        transform 1.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.skills-selector.entrance-active {
+    opacity: 1;
+
+    transform:
+        scaleX(1);
+}
+
+
+/* PAINEL PRINCIPAL — aproxima da câmera */
+
+.skill-display.entrance-ready {
+    opacity: 0;
+
+    transform:
+        translate3d(0, 35px, 0)
+        scale(0.92);
+
+    filter:
+        blur(5px);
+
+    transition:
+        opacity 1s ease 0.12s,
+        transform 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.12s,
+        filter 1.2s ease 0.12s;
+}
+
+
+.skill-display.entrance-active {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0)
+        scale(1);
+
+    filter:
+        blur(0);
+}/* =========================================================
+   BUILD 20 — BRAND VISUALS / CASCADE REVEAL
+========================================================= */
+
+
+/* TÍTULO — entrada limpa e curta */
+
+.logo-loop-heading.entrance-ready {
+    opacity: 0;
+    transform: translate3d(0, 42px, 0);
+
+    transition:
+        opacity 0.9s ease,
+        transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logo-loop-heading.entrance-active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+
+/* CONTAINER NÃO SE MOVE */
+
+.logo-loop-container.entrance-ready {
+    opacity: 1;
+    transform: none;
+}
+
+
+/* CADA LOGO COMEÇA EM UMA POSIÇÃO DIFERENTE */
+
+.logo-loop-container.entrance-ready .logo-loop-item {
+    opacity: 0;
+
+    transform:
+        translate3d(0, 75px, 0);
+
+    transition:
+        opacity 0.75s ease,
+        transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* ESTADO FINAL */
+
+.logo-loop-container.entrance-active .logo-loop-item {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0);
+}
+
+
+/* CASCATA */
+
+.logo-loop-container.entrance-active .logo-loop-item:nth-child(1) {
+    transition-delay: 0.02s;
+}
+
+.logo-loop-container.entrance-active .logo-loop-item:nth-child(2) {
+    transition-delay: 0.10s;
+}
+
+.logo-loop-container.entrance-active .logo-loop-item:nth-child(3) {
+    transition-delay: 0.18s;
+}
+
+.logo-loop-container.entrance-active .logo-loop-item:nth-child(4) {
+    transition-delay: 0.26s;
+}
+
+.logo-loop-container.entrance-active .logo-loop-item:nth-child(5) {
+    transition-delay: 0.34s;
+}
+
+.logo-loop-container.entrance-active .logo-loop-item:nth-child(6) {
+    transition-delay: 0.42s;
+}/* =========================================================
+   BUILD 21 — ABOUT / SPLIT CINEMATIC REVEAL
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   TEXTO — ENTRA PELA ESQUERDA
+--------------------------------------------------------- */
+
+.about-content.entrance-ready {
+    opacity: 0;
+
+    transform:
+        translate3d(-85px, 20px, 0);
+
+    transition:
+        opacity 1.05s ease,
+        transform 1.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.about-content.entrance-active {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0);
+}
+
+
+/* ---------------------------------------------------------
+   IMAGEM — ENTRA PELA DIREITA + PROFUNDIDADE
+--------------------------------------------------------- */
+
+.about-visual.entrance-ready {
+    opacity: 0;
+
+    transform:
+        translate3d(95px, 35px, 0)
+        scale(0.93);
+
+    transition:
+        opacity 1.05s ease 0.12s,
+        transform 1.55s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+}
+
+
+.about-visual.entrance-active {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0)
+        scale(1);
+}
+
+
+/* ---------------------------------------------------------
+   CONTEÚDO INTERNO — CASCATA
+--------------------------------------------------------- */
+
+.about-content.entrance-ready > * {
+    opacity: 0;
+
+    transform:
+        translate3d(-30px, 18px, 0);
+
+    transition:
+        opacity 0.8s ease,
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.about-content.entrance-active > * {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0);
+}
+
+
+.about-content.entrance-active > *:nth-child(1) {
+    transition-delay: 0.10s;
+}
+
+.about-content.entrance-active > *:nth-child(2) {
+    transition-delay: 0.20s;
+}
+
+.about-content.entrance-active > *:nth-child(3) {
+    transition-delay: 0.30s;
+}
+
+.about-content.entrance-active > *:nth-child(4) {
+    transition-delay: 0.40s;
+}
+
+.about-content.entrance-active > *:nth-child(5) {
+    transition-delay: 0.50s;
+}
+
+.about-content.entrance-active > *:nth-child(6) {
+    transition-delay: 0.60s;
+}
+/* =========================================================
+   BUILD 22 — IMPACT / METRIC RISE REVEAL
+========================================================= */
+
+
+/* TÍTULO DA SEÇÃO */
+
+.impact-heading.entrance-ready {
+    opacity: 0;
+
+    transform:
+        translate3d(0, 45px, 0);
+
+    transition:
+        opacity 0.9s ease,
+        transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.impact-heading.entrance-active {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0);
+}
+
+
+/* ITENS COMEÇAM ABAIXO E LEVEMENTE MENORES */
+
+.impact-grid.entrance-ready .impact-item {
+    opacity: 0;
+
+    transform:
+        translate3d(0, 80px, 0)
+        scale(0.90);
+
+    transform-origin:
+        center bottom;
+
+    transition:
+        opacity 0.8s ease,
+        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* POSIÇÃO FINAL */
+
+.impact-grid.entrance-active .impact-item {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0)
+        scale(1);
+}
+
+
+/* CASCATA DOS INDICADORES */
+
+.impact-grid.entrance-active .impact-item:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.impact-grid.entrance-active .impact-item:nth-child(2) {
+    transition-delay: 0.17s;
+}
+
+.impact-grid.entrance-active .impact-item:nth-child(3) {
+    transition-delay: 0.29s;
+}
+
+.impact-grid.entrance-active .impact-item:nth-child(4) {
+    transition-delay: 0.41s;
+}
+
+
+/* LINHA / DETALHE INTERNO APARECE DEPOIS */
+
+.impact-grid.entrance-ready .impact-item::after {
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        left center;
+
+    transition:
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.impact-grid.entrance-active .impact-item::after {
+    transform:
+        scaleX(1);
+
+    transition-delay: 0.55s;
+}
+/* =========================================================
+   BUILD 23 — IMPACT / GLOBAL + IDEAS MOTION
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL — EXPANSION REVEAL
+========================================================= */
+
+.impact-item:nth-child(3) .impact-icon,
+.impact-item:nth-child(3) .impact-copy {
+    transition:
+        transform 1.15s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.85s ease;
+}
+
+
+.impact-item:nth-child(3):not(.impact-global-active)
+.impact-icon {
+    opacity: 0;
+
+    transform:
+        scale(0.45)
+        rotate(-12deg);
+}
+
+
+.impact-item:nth-child(3):not(.impact-global-active)
+.impact-copy {
+    opacity: 0;
+
+    transform:
+        translate3d(0, 25px, 0)
+        scale(0.94);
+}
+
+
+.impact-item:nth-child(3).impact-global-active
+.impact-icon {
+    opacity: 1;
+
+    transform:
+        scale(1)
+        rotate(0deg);
+}
+
+
+.impact-item:nth-child(3).impact-global-active
+.impact-copy {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0)
+        scale(1);
+
+    transition-delay: 0.16s;
+}
+
+
+/* =========================================================
+   IDEAS TO REALITY — ENERGY REVEAL
+========================================================= */
+
+.impact-item:nth-child(4) .impact-icon,
+.impact-item:nth-child(4) .impact-copy {
+    transition:
+        transform 1.15s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.8s ease;
+}
+
+
+.impact-item:nth-child(4):not(.impact-ideas-active)
+.impact-icon {
+    opacity: 0;
+
+    transform:
+        translate3d(0, 38px, 0)
+        scale(0.55);
+}
+
+
+.impact-item:nth-child(4):not(.impact-ideas-active)
+.impact-copy {
+    opacity: 0;
+
+    transform:
+        translate3d(0, 38px, 0);
+}
+
+
+.impact-item:nth-child(4).impact-ideas-active
+.impact-icon {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0)
+        scale(1);
+
+    animation:
+        impactEnergyPulse 0.75s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        0.45s both;
+}
+
+
+.impact-item:nth-child(4).impact-ideas-active
+.impact-copy {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0);
+
+    transition-delay: 0.15s;
+}
+
+
+@keyframes impactEnergyPulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.22);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+/* =========================================================
+   BUILD 24 — CONTACT / CINEMATIC REVEAL
+========================================================= */
+
+
+/* TÍTULO */
+
+.contact-heading.entrance-ready {
+    opacity: 0;
+
+    transform:
+        translate3d(0, 65px, 0);
+
+    transition:
+        opacity 1s ease,
+        transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.contact-heading.entrance-active {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0);
+}
+
+
+/* INFORMAÇÕES — ESQUERDA */
+
+.contact-info.entrance-ready {
+    opacity: 0;
+
+    transform:
+        translate3d(-75px, 30px, 0);
+
+    transition:
+        opacity 1s ease 0.10s,
+        transform 1.35s cubic-bezier(0.16, 1, 0.3, 1) 0.10s;
+}
+
+
+.contact-info.entrance-active {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0);
+}
+
+
+/* FORMULÁRIO — PROFUNDIDADE */
+
+.contact-form.entrance-ready {
+    opacity: 0;
+
+    transform:
+        translate3d(0, 75px, 0)
+        scale(0.94);
+
+    filter:
+        blur(4px);
+
+    transition:
+        opacity 1.05s ease 0.25s,
+        transform 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.25s,
+        filter 1.15s ease 0.25s;
+}
+
+
+.contact-form.entrance-active {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0)
+        scale(1);
+
+    filter:
+        blur(0);
+}
+/* =========================================================
+   BUILD 25 — GLOBAL BACKGROUND LAYER
+========================================================= */
+
+.global-background-layer {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(3, 6, 10, 0.18),
+            rgba(3, 6, 10, 0.18)
+        ),
+        url("images/background.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+/* =========================================================
+   BUILD 25A — HERO BACKGROUND PROTECTION
+========================================================= */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    background: #05070b;
+}
+/* =========================================================
+   BUILD 26 — BACKGROUND REVEAL / FIRST TRANSITION
+   Cards → Client Websites
+========================================================= */
+
+.tech-reveal-gap {
+    position: relative;
+
+    width: calc(100% + clamp(48px, 8vw, 144px));
+    height: 340px;
+
+    margin-left: calc(clamp(24px, 4vw, 72px) * -1);
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+    background-image:
+        linear-gradient(
+            180deg,
+            #05070b 0%,
+            rgba(5, 7, 11, 0.15) 22%,
+            rgba(5, 7, 11, 0.15) 78%,
+            #05070b 100%
+        ),
+        url("images/background.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    pointer-events: none;
+}
+/* =========================================================
+   BUILD 27 — TECH REVEAL MESSAGE
+========================================================= */
+
+.tech-reveal-gap {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.tech-reveal-gap .tech-reveal-message {
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    text-align: center;
+
+    opacity: 0;
+    transform: translate3d(0, 35px, 0) scale(0.96);
+
+    transition:
+        opacity 1s ease,
+        transform 1.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-reveal-gap .tech-reveal-message.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+
+/* ÍCONE */
+
+.tech-reveal-gap .tech-reveal-icon {
+    display: block;
+
+    margin: 0 0 16px 0;
+
+    color: #1683ff;
+
+    font-size: 30px;
+    line-height: 1;
+
+    transform: rotate(0deg);
+
+    transition:
+        transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-reveal-gap .tech-reveal-message.is-visible .tech-reveal-icon {
+    transform: rotate(135deg);
+}
+
+
+/* TÍTULO */
+
+.tech-reveal-gap .tech-reveal-message strong {
+    display: block;
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(26px, 2.4vw, 42px);
+    font-weight: 700;
+    line-height: 1.1;
+
+    letter-spacing: 0.08em;
+
+    text-align: center;
+}
+
+
+/* SUBTÍTULO */
+
+.tech-reveal-gap .tech-reveal-subtitle {
+    display: block;
+
+    margin: 14px 0 0 0;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: clamp(11px, 0.85vw, 14px);
+    font-weight: 600;
+    line-height: 1.4;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    text-align: center;
+}
+/* =========================================================
+   BUILD 28 — DIGITAL CORE / SECOND BACKGROUND REVEAL
+========================================================= */
+
+.digital-core-reveal {
+    position: relative;
+
+    width: 100%;
+    height: clamp(360px, 42vw, 520px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background-image:
+        linear-gradient(
+            180deg,
+            #05070b 0%,
+            rgba(3, 6, 10, 0.12) 22%,
+            rgba(3, 6, 10, 0.12) 78%,
+            #05070b 100%
+        ),
+        url("images/background.png");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* leve atmosfera sobre o background */
+
+.digital-core-reveal::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(22, 131, 255, 0.08) 0%,
+            rgba(3, 6, 10, 0.10) 32%,
+            rgba(3, 6, 10, 0.42) 100%
+        );
+}
+
+
+/* =========================================================
+   CORE
+========================================================= */
+
+.digital-core {
+    position: relative;
+
+    width: clamp(230px, 24vw, 330px);
+    aspect-ratio: 1;
+
+    z-index: 2;
+
+    opacity: 0;
+
+    transform:
+        translate3d(0, 30px, 0)
+        scale(0.72);
+
+    transition:
+        opacity 1s ease,
+        transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.digital-core-reveal.is-active .digital-core {
+    opacity: 1;
+
+    transform:
+        translate3d(0, 0, 0)
+        scale(1);
+}
+
+
+/* =========================================================
+   ORBITS
+========================================================= */
+
+.core-orbit {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border: 1px solid rgba(86, 165, 255, 0.20);
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%);
+
+    box-shadow:
+        inset 0 0 20px rgba(22, 131, 255, 0.025),
+        0 0 20px rgba(22, 131, 255, 0.025);
+}
+
+.core-orbit-1 {
+    width: 36%;
+    height: 36%;
+}
+
+.core-orbit-2 {
+    width: 64%;
+    height: 64%;
+
+    border-style: dashed;
+
+    animation: coreOrbitRotate 18s linear infinite;
+}
+
+.core-orbit-3 {
+    width: 92%;
+    height: 92%;
+
+    border-color: rgba(86, 165, 255, 0.11);
+
+    animation: coreOrbitRotateReverse 26s linear infinite;
+}
+
+
+/* =========================================================
+   CONNECTION LINES
+========================================================= */
+
+.core-line {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 42%;
+    height: 1px;
+
+    transform-origin: left center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(22, 131, 255, 0.75),
+            rgba(91, 174, 255, 0.10)
+        );
+
+    box-shadow:
+        0 0 8px rgba(22, 131, 255, 0.28);
+
+    opacity: 0;
+
+    transition:
+        opacity 0.7s ease,
+        transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.core-line-1 {
+    transform: rotate(0deg) scaleX(0);
+}
+
+.core-line-2 {
+    transform: rotate(60deg) scaleX(0);
+}
+
+.core-line-3 {
+    transform: rotate(120deg) scaleX(0);
+}
+
+.core-line-4 {
+    transform: rotate(180deg) scaleX(0);
+}
+
+.core-line-5 {
+    transform: rotate(240deg) scaleX(0);
+}
+
+.core-line-6 {
+    transform: rotate(300deg) scaleX(0);
+}
+
+
+.digital-core-reveal.is-active .core-line {
+    opacity: 1;
+}
+
+.digital-core-reveal.is-active .core-line-1 {
+    transform: rotate(0deg) scaleX(1);
+}
+
+.digital-core-reveal.is-active .core-line-2 {
+    transform: rotate(60deg) scaleX(1);
+    transition-delay: 0.08s;
+}
+
+.digital-core-reveal.is-active .core-line-3 {
+    transform: rotate(120deg) scaleX(1);
+    transition-delay: 0.16s;
+}
+
+.digital-core-reveal.is-active .core-line-4 {
+    transform: rotate(180deg) scaleX(1);
+    transition-delay: 0.24s;
+}
+
+.digital-core-reveal.is-active .core-line-5 {
+    transform: rotate(240deg) scaleX(1);
+    transition-delay: 0.32s;
+}
+
+.digital-core-reveal.is-active .core-line-6 {
+    transform: rotate(300deg) scaleX(1);
+    transition-delay: 0.40s;
+}
+
+
+/* =========================================================
+   NODES
+========================================================= */
+
+.core-node {
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #dcebff;
+
+    border: 2px solid rgba(22, 131, 255, 0.75);
+
+    box-shadow:
+        0 0 0 5px rgba(22, 131, 255, 0.07),
+        0 0 18px rgba(22, 131, 255, 0.65);
+
+    opacity: 0;
+
+    transform: scale(0);
+    
+    transition:
+        opacity 0.55s ease,
+        transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.core-node-1 {
+    right: 3%;
+    top: 50%;
+}
+
+.core-node-2 {
+    right: 22%;
+    top: 12%;
+}
+
+.core-node-3 {
+    left: 22%;
+    top: 12%;
+}
+
+.core-node-4 {
+    left: 3%;
+    top: 50%;
+}
+
+.core-node-5 {
+    left: 22%;
+    bottom: 12%;
+}
+
+.core-node-6 {
+    right: 22%;
+    bottom: 12%;
+}
+
+
+.digital-core-reveal.is-active .core-node {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.digital-core-reveal.is-active .core-node-1 {
+    transition-delay: 0.20s;
+}
+
+.digital-core-reveal.is-active .core-node-2 {
+    transition-delay: 0.28s;
+}
+
+.digital-core-reveal.is-active .core-node-3 {
+    transition-delay: 0.36s;
+}
+
+.digital-core-reveal.is-active .core-node-4 {
+    transition-delay: 0.44s;
+}
+
+.digital-core-reveal.is-active .core-node-5 {
+    transition-delay: 0.52s;
+}
+
+.digital-core-reveal.is-active .core-node-6 {
+    transition-delay: 0.60s;
+}
+
+
+/* =========================================================
+   CENTRAL CORE
+========================================================= */
+
+.core-center {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 58px;
+    height: 58px;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(112, 186, 255, 0.62);
+
+    background: rgba(4, 17, 30, 0.72);
+
+    box-shadow:
+        0 0 0 10px rgba(22, 131, 255, 0.04),
+        0 0 35px rgba(22, 131, 255, 0.42),
+        inset 0 0 20px rgba(22, 131, 255, 0.18);
+}
+
+
+.core-center-inner {
+    width: 16px;
+    height: 16px;
+
+    border-radius: 50%;
+
+    background: #1683ff;
+
+    box-shadow:
+        0 0 12px rgba(22, 131, 255, 1),
+        0 0 30px rgba(22, 131, 255, 0.85);
+
+    animation: corePulse 2.2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   MOTION
+========================================================= */
+
+@keyframes corePulse {
+
+    0%,
+    100% {
+        transform: scale(0.82);
+        opacity: 0.72;
+    }
+
+    50% {
+        transform: scale(1.18);
+        opacity: 1;
+    }
+}
+
+
+@keyframes coreOrbitRotate {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+
+@keyframes coreOrbitRotateReverse {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+}
+
+/* =========================================================
+   BUILD 29 — MENU / SCROLL POSITIONS
+========================================================= */
+
+#impact {
+    scroll-margin-top: 70px;
+}
+
+#about {
+    scroll-margin-top: 70px;
+}
